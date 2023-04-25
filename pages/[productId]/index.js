@@ -41,6 +41,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const productId = context.params.productId;
+  dbConnect();
   const selectedProduct = await Product.findById({
     _id: new mongoose.Types.ObjectId(productId),
   });
